@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Add Project</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.overview.label(class="form-label") }}
+        {{ form.overview(class="form-control") }}
+        <small class="text-muted">Short summary of the project</small>
+    </div>
+
+    <div class="mb-3">
+        {{ form.link.label(class="form-label") }}
+        {{ form.link(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control", rows=4) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.image.label(class="form-label") }}
+        {{ form.image(class="form-control", id="projectImageInput") }}
+        <img id="projectImagePreview" class="img-fluid rounded mt-2 d-none" alt="Preview">
+        <small class="text-muted">Allowed: png, jpg, jpeg, gif, webp (max 2MB)</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        {{ form.submit.label.text }}
+    </button>
+
+    <a href="{{ url_for('projects') }}" class="btn btn-secondary">
+        Cancel
+    </a>
+</form>
+
+{% endblock %}

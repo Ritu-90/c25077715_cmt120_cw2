@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="text-center mb-5">
+    <h2 class="fw-bold text-primary">Projects</h2>
+</div>
+
+{% if is_admin %}
+<a href="{{ url_for('add_project') }}" class="btn btn-success mb-3">
+    <i class="bi bi-plus-circle me-1"></i> Add Project
+</a>
+{% endif %}
+
+<!-- Search Bar -->
+<div class="mb-3">
+  <div class="input-group">
+    <input
+      id="liveProjectSearch"
+      type="text"
+      class="form-control"
+      placeholder="Search projects..."
+      autocomplete="off"
+    >
+    <button class="btn btn-outline-secondary" type="button" id="clearLiveProjectSearch">Clear</button>
+  </div>
+  <small class="text-muted">This search works instantly without reloading the page.</small>
+</div>
+
+
+<div class="row justify-content-center">
+{% for p in data %}
+    <div class="col-12 col-md-10 col-lg-8 mb-3 project-card">
+        <div class="card h-100">
+            {% if p.image %}
+                <img src="{{ url_for('static', filename='uploads/' ~ p.image) }}"
+                    class="card-img-top"
+                    style="object-fit: cover; max-height: 320px;"
+                    alt="{{ p.title }}"
+                >
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ p.title }}</h5>
+
+                {% if p.overview %}
+                    <p class="card-text">
+                        <strong>Overview:</strong> {{ p.overview }}
+                    </p>
+                {% else %}
+                    <p class="card-text text-muted">
+                        {{ p.description[:140] }}{% if p.description|length > 140 %}...{% endif %}
+                    </p>
+                {% endif %}
+
+                {% if p.link %}
+                    <p class="card-text">
+                        <a href="{{ p.link }}" target="_blank" rel="noopener">Project Link</a>
+                    </p>
+                {% endif %}
+
+                <a href="{{ url_for('project_detail', project_id=p.id) }}"
+                   class="btn btn-sm btn-outline-primary me-2">
+                    View Details
+                </a>
+
+                {% if is_admin %}
+                    <a href="{{ url_for('edit_project', id=p.id) }}" class="btn btn-sm btn-warning">Edit</a>
+
+                    <form method="POST"
+                          action="{{ url_for('delete_project', id=p.id) }}"
+                          class="d-inline">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit"
+                                class="btn btn-sm btn-danger"
+                                onclick="return confirm('Delete this project?');">
+                            Delete
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

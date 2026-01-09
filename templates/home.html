@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+
+  <div class="row align-items-center g-4 mb-4">
+    <div class="col-lg-8">
+      <div class="p-4 rounded-3 border bg-white shadow-sm">
+        <h1 class="display-5 fw-bold mb-2">Welcome to My Portfolio</h1>
+        <p class="text-muted mb-3">Flask · SQLAlchemy · Bootstrap</p>
+
+          <p class="mb-3">
+            Hi, I’m <strong>Ritu</strong> — welcome to my portfolio.<br>
+            A strong foundation in data handling, research, and structured information systems
+            has been developed through academic coursework and practical
+             projects. Experience has been gained in managing information, conducting analysis, and applying
+            problem-solving skills in real-world scenarios. Technical and analytical skills have been
+            strengthened through hands-on projects and continuous learning.<br>
+            A strong interest is maintained in data-driven applications and transforming information into meaningful insights.
+          </p>
+
+        {% if social_links and social_links|length > 0 %}
+          <hr class="my-4">
+          <div class="d-flex gap-3 flex-wrap align-items-center">
+            <span class="text-muted">Find me:</span>
+            {% for s in social_links %}
+              <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                {{ s.platform }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="p-4 rounded-3 border bg-white shadow-sm text-center">
+
+        <img
+            src="{{ url_for('static', filename='images/profile.jpg') }}"
+            alt="Profile picture"
+            class="img-fluid rounded-circle mb-3"
+            style="max-width: 180px;"
+        >
+
+        <h5 class="mb-1">Quick Overview</h5>
+        <p class="text-muted mb-0">
+          Explore my education, skills, experience, and projects.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 p-4 rounded-3 border bg-white shadow-sm text-center">
+    <h3 class="h5 mb-2">Interested in working together?</h3>
+    <p class="text-muted mb-3">Send me a message from the contact page.</p>
+    <a class="btn btn-primary" href="{{ url_for('contact') }}">Go to Contact</a>
+  </div>
+
+</div>
+{% endblock %}

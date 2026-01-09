@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add Experience</h3>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.role.label }}
+        {{ form.role(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.organisation.label }}
+        {{ form.organisation(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.duration.label }}
+        {{ form.duration(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.description.label }}
+        {{ form.description(class="form-control") }}
+    </div>
+
+    <button class="btn btn-success">Save</button>
+    <a href="{{ url_for('experience') }}" class="btn btn-secondary">Cancel</a>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row align-items-center">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="fade-right">
+
+            <div class="rounded-circle shadow-sm mb-3"
+                style="
+                    width: 200px;
+                    height: 200px;
+                    overflow: hidden;
+                    margin: auto;
+                ">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+                    alt="Profile Image"
+                    style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    ">
+            </div>
+
+            <h4 class="fw-bold mb-1">Ritu Sikder Momo</h4>
+            <p class="text-muted mb-1">Data • Information • Research</p>
+
+            <small class="text-secondary">
+                Turning structured information into meaningful insights.
+            </small>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-md-8" data-aos="fade-up">
+
+            <h2 class="fw-bold text-primary mb-3">
+                <i class="bi bi-person-circle me-2"></i>About Me
+            </h2>
+
+            {% if about %}
+                <p class="text-muted">
+                    {{ about.bio }}
+                </p>
+            {% else %}
+                <p class="text-muted">
+                    A professional profile highlighting analytical thinking,
+                    structured research, and continuous learning.
+                </p>
+            {% endif %}
+
+            <!-- HIGHLIGHTS -->
+            <ul class="list-unstyled mt-3">
+                <li class="mb-2">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                    Strong analytical and organizational foundation
+                </li>
+                <li class="mb-2">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                    Experience with structured information systems
+                </li>
+                <li class="mb-2">
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                    Practical exposure to professional workflows
+                </li>
+                <li>
+                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                    Growth-oriented and research-focused mindset
+                </li>
+            </ul>
+
+            <!-- DOWNLOAD CV -->
+            <a href="{{ url_for('static', filename='files/Ritu_CV.pdf') }}"
+               class="btn btn-outline-primary mt-3"
+               target="_blank">
+                <i class="bi bi-download me-1"></i> Download CV
+            </a>
+
+        </div>
+    </div>
+
+    <!-- ADMIN EDIT SECTION -->
+    {% if is_admin %}
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="fw-bold mb-3">Edit About</h5>
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {{ form.bio(class="form-control mb-2") }}
+                {# Recommended: remove this so nobody uploads profile pics here #}
+                {{ form.profile_pic(class="form-control mb-2") }}
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

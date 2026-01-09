@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="text-center mb-5">
+    <h2 class="fw-bold text-primary">Skills</h2>
+    <p class="text-muted">
+        A diverse set of technical skills has been developed to build efficient,<br>
+         scalable, and user-friendly applications. Continuous learning and hands-on experience have been emphasized <br>
+         to stay aligned with modern technologies.
+    </p>
+</div>
+
+<!-- Programming Languages -->
+<h4 class="fw-bold text-center mb-4">Programming Languages</h4>
+
+<div class="row justify-content-center text-center mb-5">
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/python.svg') }}" width="200">
+        <p class="mt-2">Python</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/javascript.svg') }}" width="200">
+        <p class="mt-2">JavaScript</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/sqlite.svg') }}" width="200">
+        <p class="mt-2">SQLite</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/sqlalchemy.svg') }}" width="200">
+        <p class="mt-2">SQLAlchemy</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/vscode.svg') }}" width="200">
+        <p class="mt-2">VS Code</p>
+    </div>
+
+</div>
+
+<!-- Software Skills -->
+<h4 class="fw-bold text-center mb-4">Software Skills</h4>
+
+<div class="row justify-content-center text-center">
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/git.svg') }}" width="200">
+        <p class="mt-2">Git</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/github.svg') }}" width="200">
+        <p class="mt-2">GitHub</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/jupyter.svg') }}" width="200">
+        <p class="mt-2">Jupyter Notebook</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/bootstrap.svg') }}" width="200">
+        <p class="mt-2">Bootstrap</p>
+    </div>
+
+    <div class="col-6 col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/flask.svg') }}" width="200">
+        <p class="mt-2">Flask</p>
+    </div>
+</div>
+
+{% endblock %}

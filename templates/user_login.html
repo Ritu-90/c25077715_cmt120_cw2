@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4" style="max-width: 520px;">
+  <h3 class="mb-3 text-center">User Login</h3>
+
+  <form method="POST" autocomplete="off">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+      {{ form.username.label(class="form-label") }}
+      {{ form.username(class="form-control", autocomplete="off", autocapitalize="none", spellcheck="false") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.password.label(class="form-label") }}
+      {{ form.password(class="form-control", autocomplete="current-password") }}
+    </div>
+
+    <button class="btn btn-primary" type="submit">{{ form.submit.label.text }}</button>
+    <a class="btn btn-link" href="{{ url_for('register') }}">Create account</a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4" style="max-width: 520px;">
+    <h3 class="mb-3 text-center">Create Account</h3>
+
+  <form method="POST" autocomplete="off">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+      {{ form.username.label(class="form-label") }}
+      {{ form.username(class="form-control", autocomplete="off", autocapitalize="none", spellcheck="false") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.full_name.label(class="form-label") }}
+      {{ form.full_name(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+      {{ form.email.label(class="form-label") }}
+      {{ form.email(class="form-control", autocomplete="off", autocapitalize="none", spellcheck="false") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.password.label(class="form-label") }}
+      {{ form.password(class="form-control", autocomplete="new-password") }}
+    </div>
+
+    <button class="btn btn-primary" type="submit">{{ form.submit.label.text }}</button>
+  </form>
+</div>
+{% endblock %}

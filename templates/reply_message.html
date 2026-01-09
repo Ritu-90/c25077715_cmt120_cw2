@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <h3 class="mb-3">Reply to {{ message.name }}</h3>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <p class="mb-1"><strong>Message:</strong></p>
+            <p class="text-muted">{{ message.message }}</p>
+        </div>
+    </div>
+
+    <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="mb-3">
+            <label class="form-label">Your Reply</label>
+            <textarea name="reply" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Send Reply</button>
+        <a href="{{ url_for('contact') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+</div>
+{% endblock %}

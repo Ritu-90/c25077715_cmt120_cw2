@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #333;
+    padding: 12px 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Page container */
+.container {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h2 {
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Cards for Projects */
+.project-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.skill-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.skill-card img {
+    width: 70px;
+    height: 70px;
+}
+
+.skill-card p {
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    background-color: #f8f9fa;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.education-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.education-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    background: #0d6efd;
+    border-radius: 50%;
+}
+
+.education-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.education-card:hover {
+    transform: translateY(-4px);
+    border-left: 4px solid #0d6efd;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Experience Card Styling */
+.experience-card {
+    transition: all 0.3s ease;
+    border-left: 5px solid #0d6efd;
+    background: #fff;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.experience-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+img.rounded-circle {
+    border: 4px solid rgba(13,110,253,0.1);
+}
+
+.profile-img {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block;
+    margin: 0 auto;
+}

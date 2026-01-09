@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4" style="max-width: 700px;">
+  <h3 class="mb-3">Edit Comment</h3>
+
+  <form method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <div class="mb-3">
+      <label class="form-label">Comment</label>
+      <textarea name="text" class="form-control" rows="5" required>{{ comment.text }}</textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary" href="{{ url_for('project_detail', project_id=comment.project_id) }}">Cancel</a>
+  </form>
+</div>
+{% endblock %}

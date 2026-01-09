@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="text-center mb-5">
+    <h2 class="fw-bold text-primary">Education</h2>
+</div>
+
+{% if is_admin %}
+<a href="{{ url_for('add_education') }}" class="btn btn-success mb-3">
+    <i class="bi bi-plus-circle me-1"></i> Add Education
+</a>
+{% endif %}
+
+<div class="list-group">
+
+    <!-- Timeline wrapper -->
+    <div class="education-timeline">
+
+        {% for e in data %}
+        <div class="education-item">
+
+            <div class="list-group-item education-card" data-aos="fade-up">
+
+                <!-- Degree -->
+                <h5 class="fw-bold mb-1">
+                    <i class="bi bi-mortarboard-fill text-primary me-2"></i>
+                    {{ e.degree }}
+                </h5>
+
+                <!-- Institution -->
+                <p class="mb-1 text-muted">
+                    <i class="bi bi-building me-2"></i>
+                    {{ e.institution }}
+                </p>
+
+                <!-- Year -->
+                <small class="text-muted d-block mb-2">
+                    <i class="bi bi-calendar-event me-2"></i>
+                    {{ e.year }}
+                </small>
+
+                <!-- Description -->
+                <p class="mb-3">
+                    {{ e.description }}
+                </p>
+
+                {% if is_admin %}
+                    <a href="{{ url_for('edit_education', id=e.id) }}"
+                       class="btn btn-sm btn-warning me-2">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+
+                    <form method="POST"
+                          action="{{ url_for('delete_education', id=e.id) }}"
+                          style="display:inline;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit"
+                                class="btn btn-sm btn-danger"
+                                onclick="return confirm('Delete this education item?');">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </form>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

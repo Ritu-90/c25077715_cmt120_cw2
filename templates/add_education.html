@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Education</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div>
+        {{ form.year.label }}<br>
+        {{ form.year(size=40) }}
+    </div>
+
+    <br>
+
+    <div>
+        {{ form.institution.label }}<br>
+        {{ form.institution(size=40) }}
+    </div>
+
+    <br>
+
+    <div>
+        {{ form.degree.label }}<br>
+        {{ form.degree(size=40) }}
+    </div>
+
+    <br>
+
+    <div>
+        {{ form.description.label }}<br>
+        {{ form.description(rows=4, cols=40) }}
+    </div>
+
+    <br>
+
+    {{ form.submit() }}
+</form>
+
+<br>
+<a href="{{ url_for('education') }}">Back to Education</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add Skill</h2>
+
+<form method="POST" action="{{ url_for('add_skill') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <label for="name">Skill Name</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+{% endblock %}
